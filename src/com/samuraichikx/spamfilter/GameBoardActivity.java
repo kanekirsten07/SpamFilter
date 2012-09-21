@@ -72,7 +72,7 @@ public class GameBoardActivity extends Activity {
     		e.fall();
     		if(e.x()>= sg.getX() && e.y()>=sg.getY())
     		{
-    			e.getBitmap().recycle();
+    			e.flag();
     			emails.remove(e);
     		}
     	}
