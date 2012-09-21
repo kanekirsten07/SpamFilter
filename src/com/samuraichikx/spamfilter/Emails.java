@@ -16,7 +16,7 @@ public class Emails {
 	}
 	public void flag()
 	{
-		!flagged;
+		flagged = false;
 	}
 	
 	public int x()
