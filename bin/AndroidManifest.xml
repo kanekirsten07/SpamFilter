@@ -24,8 +24,6 @@
             android:name=".GameBoardActivity"
             android:label="@string/game_title" >
             <intent-filter>
-               
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,7 +31,14 @@
             android:name=".GameBoardView"
             android:label="@string/title_activity_game_board_view" >
             <intent-filter>
-                
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OptionsActivity"
+            android:label="@string/title_activity_options" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

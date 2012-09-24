@@ -28,6 +28,7 @@ public class GameBoardActivity extends Activity {
 	Random  xcoordinate = new Random();
 	Random  ycoordinate = new Random();
 	private int envelope_size, envelope_size_x;
+	private int timekeeper = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +57,15 @@ public class GameBoardActivity extends Activity {
     	int xcoord = xcoordinate.nextInt(maxx);
     	int ycoord = ycoordinate.nextInt(maxy);
     	int envelopenumber = envelope.nextInt(10);
-    	
+    	if(timekeeper % 10 == 0){
     	 email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
     	 envelope_size = email.getHeight();
     	 envelope_size_x = email.getWidth();
 		 Emails e = new Emails(10, xcoord, ycoord, email);
 		 emails.add(e);
-    	
+		 timekeeper++;
+    	}
+    	timekeeper++;
     }
     /*
      * Shred emails if either they are lined up wih the Shredder Guy or if they reach the end of the screen. Update them to all fall otherwise.
