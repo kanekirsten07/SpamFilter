@@ -109,9 +109,10 @@ public class GameBoardView extends View implements OnTouchListener{
     			 drawemails.get(i).getBitmap().recycle();
     			 updateScore(drawemails.get(i).getScoreValue());
     			 drawemails.remove(i);
-    		 }
+    		 }else {
          	Bitmap bm = drawemails.get(i).getBitmap();
          	canvas.drawBitmap(bm, drawemails.get(i).x(), drawemails.get(i).y(), background);
+    		 }
          }
     	 background.setStyle(Style.FILL);
     	 background.setColor(Color.BLACK);

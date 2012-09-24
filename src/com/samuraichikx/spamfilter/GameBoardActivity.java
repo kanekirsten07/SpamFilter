@@ -13,6 +13,7 @@ import java.util.Random;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -29,6 +30,7 @@ public class GameBoardActivity extends Activity {
 	Random  ycoordinate = new Random();
 	private int envelope_size, envelope_size_x;
 	private int timekeeper = 0;
+	Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class GameBoardActivity extends Activity {
         emails = new ArrayList<Emails>();
         _gameboardView = (GameBoardView)findViewById(R.id.game_board_view); 
         _gameboardView.setController(this);
+        context = _gameboardView.getContext();
        // _gameboardView.setMode(GameBoardView.RUNNING);
     }
     
@@ -57,7 +60,10 @@ public class GameBoardActivity extends Activity {
     	int xcoord = xcoordinate.nextInt(maxx);
     	int ycoord = ycoordinate.nextInt(maxy);
     	int envelopenumber = envelope.nextInt(10);
-    	if(timekeeper % 10 == 0){
+    	String spawn = OptionsActivity.getFrequency(context);
+    	int spawnrate =Integer.parseInt( spawn);
+    	if(timekeeper % (2*spawnrate) == 0){
+    		Log.d("option value",spawn );
     	 email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
     	 envelope_size = email.getHeight();
     	 envelope_size_x = email.getWidth();
