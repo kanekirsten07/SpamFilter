@@ -49,6 +49,8 @@ public class GameBoardActivity extends Activity {
     	return emails;
     }
     
+   
+    
     public void spawnEmails(int maxx, int maxy)
     {
     	int xcoord = xcoordinate.nextInt(maxx);
@@ -73,7 +75,7 @@ public class GameBoardActivity extends Activity {
     		if(e.x()>= sg.getX() && e.y()>=sg.getY())
     		{
     			e.flag();
-    			emails.remove(e);
+    			
     		}
     	}
     	

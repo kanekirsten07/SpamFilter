@@ -16,7 +16,7 @@ public class Emails {
 	}
 	public void flag()
 	{
-		flagged = false;
+		flagged = true;
 	}
 	
 	public int x()
@@ -28,6 +28,11 @@ public class Emails {
 		return y;
 	}
 	
+	public int getScoreValue()
+	{
+		return value;
+	}
+	
 	public void fall()
 	{
 		y+=10;
@@ -36,6 +41,10 @@ public class Emails {
 	public Bitmap getBitmap()
 	{
 		return emailtype;
+	}
+	
+	public boolean isflagged(){
+		return flagged;
 	}
 
 }

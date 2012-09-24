@@ -15,7 +15,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
@@ -29,7 +31,8 @@ public class GameBoardView extends View implements OnTouchListener{
 	
 	Paint background = new Paint();
 	ShredderGuy s = new ShredderGuy(150, 500);
-	int maxx, maxy;
+	private int maxx, maxy;
+	private int score= 0;
 	public static final int PAUSE = 0;
     public static final int RUNNING = 1;
 	ArrayList<Emails> drawemails;
@@ -100,10 +103,20 @@ public class GameBoardView extends View implements OnTouchListener{
     	 canvas.drawRect(0, 0, getWidth(), getHeight(), background);
     	 for(int i = 0; i < drawemails.size(); i++)
          {
+    		 if(drawemails.get(i).isflagged())
+    		 {
+    			 
+    			 drawemails.get(i).getBitmap().recycle();
+    			 updateScore(drawemails.get(i).getScoreValue());
+    			 drawemails.remove(i);
+    		 }
          	Bitmap bm = drawemails.get(i).getBitmap();
          	canvas.drawBitmap(bm, drawemails.get(i).x(), drawemails.get(i).y(), background);
          }
-    	 
+    	 background.setStyle(Style.FILL);
+    	 background.setColor(Color.BLACK);
+    	 background.setTextSize(20);
+    	 canvas.drawText("Score:  " + score, getWidth()-200, 30, background);
     	 canvas.drawBitmap(shredderguy, s.getX(), s.getY(), background);
     	 
     	 gb.shredEmails(s);
@@ -115,6 +128,11 @@ public class GameBoardView extends View implements OnTouchListener{
     
     private void initGameBoardView(){
     	setFocusable(true);
+    }
+    
+    private void updateScore(int scorevalue)
+    {
+    	this.score += scorevalue;
     }
 
 	@Override
