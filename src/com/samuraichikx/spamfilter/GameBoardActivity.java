@@ -59,9 +59,10 @@ public class GameBoardActivity extends Activity {
     {
     	int xcoord = xcoordinate.nextInt(maxx);
     	int ycoord = ycoordinate.nextInt(maxy);
-    	int envelopenumber = envelope.nextInt(10);
+    	int envelopenumber = envelope.nextInt(2);
     	String spawn = OptionsActivity.getFrequency(context);
     	int spawnrate =Integer.parseInt( spawn);
+    	Emails e = null;
     	switch(shredderanimation)
     	{
     	case(1):
@@ -75,14 +76,26 @@ public class GameBoardActivity extends Activity {
     		shredderanimation=0;
 			break;
     	}
+    	
     	if(timekeeper % (2*spawnrate) == 0){
-    		Log.d("option value",spawn );
-    	 email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
-    	 envelope_size = email.getHeight();
-    	 envelope_size_x = email.getWidth();
-		 Emails e = new Emails(10, xcoord, ycoord, email);
-		 emails.add(e);
-		 timekeeper++;
+    		//Log.d("option value",spawn );
+    		
+    		switch(envelopenumber){
+    		case(0):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
+    			e = new Emails(10, xcoord, ycoord, email);
+    			break;
+    		case(1):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope2);
+    			 e = new Emails(-10, xcoord, ycoord, email);
+    		}
+    		
+			if(!(e== null)){
+				envelope_size = email.getHeight();
+				envelope_size_x = email.getWidth();
+			emails.add(e);
+			}
+    		timekeeper++;
     	}
     	shredderanimation++;
     	timekeeper++;
