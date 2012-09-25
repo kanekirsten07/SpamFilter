@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference android:key="Number of envelopes"
+    <ListPreference android:key="Number_Of_Envelopes"
         android:title="Envelopes Spawn"
         android:summary="Choose frequency of Envelope spawn"
         android:entries="@array/envelope_options"
         android:entryValues="@array/envelope_values"
         android:dialogTitle="Envelope Spawn Rate"
-        android:defaultValue="1" />
+        android:defaultValue="10" />
     
 </PreferenceScreen>
     
