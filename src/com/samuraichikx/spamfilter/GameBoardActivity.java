@@ -29,7 +29,7 @@ public class GameBoardActivity extends Activity {
 	Random  xcoordinate = new Random();
 	Random  ycoordinate = new Random();
 	private int envelope_size, envelope_size_x;
-	private int timekeeper = 0;
+	private int timekeeper = 0, shredderanimation = 1;
 	Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,19 @@ public class GameBoardActivity extends Activity {
     	int envelopenumber = envelope.nextInt(10);
     	String spawn = OptionsActivity.getFrequency(context);
     	int spawnrate =Integer.parseInt( spawn);
+    	switch(shredderanimation)
+    	{
+    	case(1):
+    		_gameboardView.setShredder(BitmapFactory.decodeResource(getResources(), R.drawable.shredderguy1));
+    		break;
+    	case(2):
+    		_gameboardView.setShredder(BitmapFactory.decodeResource(getResources(), R.drawable.shredderguy2));
+    		break;
+    	case(3):
+    		_gameboardView.setShredder(BitmapFactory.decodeResource(getResources(), R.drawable.shredderguy3));
+    		shredderanimation=0;
+			break;
+    	}
     	if(timekeeper % (2*spawnrate) == 0){
     		Log.d("option value",spawn );
     	 email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
@@ -71,6 +84,7 @@ public class GameBoardActivity extends Activity {
 		 emails.add(e);
 		 timekeeper++;
     	}
+    	shredderanimation++;
     	timekeeper++;
     }
     /*

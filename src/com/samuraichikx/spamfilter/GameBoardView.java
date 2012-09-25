@@ -38,17 +38,23 @@ public class GameBoardView extends View implements OnTouchListener{
 	ArrayList<Emails> drawemails;
 	private int refresh = 100;
 	private boolean paused = false;
-	private Bitmap shredderguy = BitmapFactory.decodeResource(getResources(), R.drawable.bubble);
+	private Bitmap shredderguy;
 	private GameBoardActivity gb;
 
     public GameBoardView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		s.setHeight( shredderguy.getHeight());
-		 s.setWidth( shredderguy.getWidth());
+		s.setHeight( 75);
+		 s.setWidth( 100);
 		 
 		initGameBoardView();
 	}
+    
+    public void setShredder(Bitmap bm)
+    {
+    	
+    	shredderguy = bm;
+    }
     
     public void setController(GameBoardActivity gameboard)
     {
@@ -158,8 +164,8 @@ public class GameBoardView extends View implements OnTouchListener{
 		
 		
 		invalidate();
-		Log.d("X", Float.toString(m.getX()));
-		Log.d("Y", Float.toString(m.getY()));
+		//Log.d("X", Float.toString(m.getX()));
+		//Log.d("Y", Float.toString(m.getY()));
 		return true;
 	}
 
