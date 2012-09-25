@@ -40,7 +40,7 @@ public class GameBoardView extends View implements OnTouchListener{
 	private boolean paused = false;
 	private Bitmap shredderguy;
 	private GameBoardActivity gb;
-
+	Canvas canvas;
     public GameBoardView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
@@ -100,6 +100,13 @@ public class GameBoardView extends View implements OnTouchListener{
     {
     	
     	//gb.printToLog();
+    	this.canvas = canvas;
+    	if(gb.isgameover())
+    	{
+    		canvas.drawText("Game Over", getWidth()/3, getHeight()/3, background);
+        	setFocusable(false);
+    		return;
+    	}
     	
     	 background.setColor(getResources().getColor(R.color.background3));
     	 maxx = getWidth()-125;
@@ -140,6 +147,10 @@ public class GameBoardView extends View implements OnTouchListener{
     private void updateScore(int scorevalue)
     {
     	this.score += scorevalue;
+    	if(this.score <= 0)
+    	{
+    		gb.gameover();
+    	}
     }
 
 	@Override
@@ -149,7 +160,7 @@ public class GameBoardView extends View implements OnTouchListener{
 		case MotionEvent.ACTION_DOWN:
 			if(s.getX()<= m.getX() && (s.getX() + s.getWidth())>= m.getX() && s.getY()<= m.getY() && (s.getY() + s.getHeight())>= m.getY())
 			{
-			Log.d("Touch Test", "We're good");
+				s.setX((int)m.getX()-50);
 			}
 			break;
 			

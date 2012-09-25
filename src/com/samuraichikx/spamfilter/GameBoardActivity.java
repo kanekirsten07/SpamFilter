@@ -14,6 +14,8 @@ import java.util.Random;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -31,6 +33,9 @@ public class GameBoardActivity extends Activity {
 	private int envelope_size, envelope_size_x;
 	private int timekeeper = 0, shredderanimation = 1;
 	Context context;
+	SharedPreferences prefs;
+	Editor editor;
+	private boolean gameover = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +108,20 @@ public class GameBoardActivity extends Activity {
     /*
      * Shred emails if either they are lined up wih the Shredder Guy or if they reach the end of the screen. Update them to all fall otherwise.
      */
+    public boolean isgameover()
+    {
+    	return gameover;
+    }
+    public void gameover()
+    {
+    	gameover=true;
+    	for(int i = 0; i<emails.size();i++)
+    	{
+    		emails.get(i).flag();
+    	}
+    	
+    }
+    
     public void shredEmails(ShredderGuy sg)
     {
     	for(Emails e: emails)
