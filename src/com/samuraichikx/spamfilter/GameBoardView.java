@@ -33,6 +33,7 @@ public class GameBoardView extends View implements OnTouchListener{
 	ShredderGuy s = new ShredderGuy(150, 500);
 	private int maxx, maxy;
 	private int score= 0;
+	private int temphighscore = 0;
 	public static final int PAUSE = 0;
     public static final int RUNNING = 1;
 	ArrayList<Emails> drawemails;
@@ -131,6 +132,7 @@ public class GameBoardView extends View implements OnTouchListener{
     	 background.setColor(Color.BLACK);
     	 background.setTextSize(20);
     	 canvas.drawText("Score:  " + score, getWidth()-200, 30, background);
+    	 canvas.drawText("High Score: " + gb.prefs.getInt("HighScore",0), getWidth()-350, 30, background);
     	 canvas.drawBitmap(shredderguy, s.getX(), s.getY(), background);
     	 
     	 gb.shredEmails(s);
@@ -140,6 +142,11 @@ public class GameBoardView extends View implements OnTouchListener{
     	 invalidate();
     }
     
+    public int getScore()
+    {
+    	return this.temphighscore;
+    }
+    
     private void initGameBoardView(){
     	setFocusable(true);
     }
@@ -147,6 +154,10 @@ public class GameBoardView extends View implements OnTouchListener{
     private void updateScore(int scorevalue)
     {
     	this.score += scorevalue;
+    	if (this.score > this.temphighscore)
+    	{
+    		temphighscore = score;
+    	}
     	if(this.score <= 0)
     	{
     		gb.gameover();

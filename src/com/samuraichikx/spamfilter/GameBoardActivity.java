@@ -45,6 +45,13 @@ public class GameBoardActivity extends Activity {
         _gameboardView = (GameBoardView)findViewById(R.id.game_board_view); 
         _gameboardView.setController(this);
         context = _gameboardView.getContext();
+        prefs = context.getSharedPreferences("MyPrefsKey", 0);
+        editor = prefs.edit();
+        if(prefs == null)
+        {
+        	Log.d("Test1", "Not okay");
+        }else
+        	Log.d("test2", "hai");
        // _gameboardView.setMode(GameBoardView.RUNNING);
     }
     
@@ -118,6 +125,12 @@ public class GameBoardActivity extends Activity {
     	for(int i = 0; i<emails.size();i++)
     	{
     		emails.get(i).flag();
+    	}
+    	int newscore=_gameboardView.getScore();
+    	if(prefs.getInt("HighScore", 0)< newscore)
+    	{
+    		editor.putInt("HighScore", newscore);
+    		editor.commit();
     	}
     	
     }
