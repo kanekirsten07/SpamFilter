@@ -45,8 +45,8 @@ public class GameBoardView extends View implements OnTouchListener{
     public GameBoardView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		s.setHeight( 75);
-		 s.setWidth( 100);
+		s.setHeight( 45);
+		 s.setWidth( 53);
 		 
 		initGameBoardView();
 	}
