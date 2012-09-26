@@ -29,7 +29,7 @@ public class GameBoardActivity extends Activity {
 	private Bitmap email;
 	Random envelope = new Random();
 	Random  xcoordinate = new Random();
-	Random  ycoordinate = new Random();
+	//Random  ycoordinate = new Random();
 	private int envelope_size, envelope_size_x;
 	private int timekeeper = 0, shredderanimation = 1;
 	Context context;
@@ -70,7 +70,7 @@ public class GameBoardActivity extends Activity {
     public void spawnEmails(int maxx, int maxy)
     {
     	int xcoord = xcoordinate.nextInt(maxx);
-    	int ycoord = ycoordinate.nextInt(maxy);
+    	int ycoord = 30;
     	int envelopenumber = envelope.nextInt(2);
     	String spawn = OptionsActivity.getFrequency(context);
     	int spawnrate =Integer.parseInt( spawn);
@@ -140,7 +140,7 @@ public class GameBoardActivity extends Activity {
     	for(Emails e: emails)
     	{
     		e.fall();
-    		if(e.x()>= sg.getX() && e.y()>=sg.getY())
+    		if(e.x()>= sg.getX() && e.x() <= sg.getX()+sg.getWidth() && e.y()>=sg.getY() && e.y() <= sg.getY()+sg.getHeight())
     		{
     			e.flag();
     			
