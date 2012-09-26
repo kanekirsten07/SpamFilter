@@ -125,6 +125,11 @@ public class GameBoardView extends View implements OnTouchListener{
     			 drawemails.remove(i);
     		 }else if(drawemails.get(i).y()+ drawemails.get(i).getHeight()>= getHeight()-50){
     			 Log.d("End of the line", "erased");
+    			 /* Deletes emails if they reach the end of the page and have not been shredded*/
+    			 if(drawemails.get(i).getScoreValue() > 0)
+    			 {
+    				 updateScore((-1) * drawemails.get(i).getScoreValue());
+    			 }
     			 drawemails.get(i).getBitmap().recycle();
     			 drawemails.remove(i);
     		 }else {
@@ -145,10 +150,21 @@ public class GameBoardView extends View implements OnTouchListener{
     	 //Log.d("shreddery", Integer.toString(shredguyy));
     	 invalidate();
     }
-    
+    public int getcurrentScore()
+    {
+    	return this.score;
+    }
     public int getScore()
     {
     	return this.temphighscore;
+    }
+    
+    public void setScores(int currentscore, int temphigh)
+    {
+    	Log.d("Scores", "currentscore" + currentscore);
+    	Log.d("Scores", "temphigh" + temphigh);
+    	this.temphighscore = temphigh;
+    	this.score = currentscore;
     }
     
     private void initGameBoardView(){

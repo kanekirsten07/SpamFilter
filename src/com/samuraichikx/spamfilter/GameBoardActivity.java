@@ -13,7 +13,9 @@ import java.util.Random;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
@@ -29,29 +31,47 @@ public class GameBoardActivity extends Activity {
 	private Bitmap email;
 	Random envelope = new Random();
 	Random  xcoordinate = new Random();
-	//Random  ycoordinate = new Random();
+	
 	private int envelope_size, envelope_size_x;
 	private int timekeeper = 0, shredderanimation = 1;
 	Context context;
 	SharedPreferences prefs;
 	Editor editor;
 	private boolean gameover = false;
+	
+	DialogInterface.OnClickListener yesnobox = new DialogInterface.OnClickListener() {
+		
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			switch(which){
+			case DialogInterface.BUTTON_POSITIVE:
+				_gameboardView.setScores(prefs.getInt("TempScore", 0), prefs.getInt("CurrentScore", 0));
+				break;
+			case DialogInterface.BUTTON_NEGATIVE:
+				break;
+			}
+			
+		}
+	};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_board);
-        
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         emails = new ArrayList<Emails>();
         _gameboardView = (GameBoardView)findViewById(R.id.game_board_view); 
         _gameboardView.setController(this);
         context = _gameboardView.getContext();
         prefs = context.getSharedPreferences("MyPrefsKey", 0);
         editor = prefs.edit();
-        if(prefs == null)
+        if(prefs.getBoolean("HasSavedFile",false) == true)
         {
-        	Log.d("Test1", "Not okay");
+        	builder.setMessage("You have a saved game, would you like to continue?").setPositiveButton("Yes", yesnobox).setNegativeButton("No", yesnobox).show();
+        	Log.d("save", "true");
         }else
-        	Log.d("test2", "hai");
+        {
+        	Log.d("save", "false");
+        }
        // _gameboardView.setMode(GameBoardView.RUNNING);
     }
     
@@ -89,7 +109,7 @@ public class GameBoardActivity extends Activity {
 			break;
     	}
     	
-    	if(timekeeper % (2*spawnrate) == 0){
+    	if(timekeeper % (5*spawnrate) == 0){
     		//Log.d("option value",spawn );
     		
     		switch(envelopenumber){
@@ -133,6 +153,23 @@ public class GameBoardActivity extends Activity {
     		editor.commit();
     	}
     	
+    }
+    
+    @Override
+    public void onBackPressed(){
+    	Log.d("Back", "Pressed");
+    	if(!this.gameover)
+    	{
+    		editor.putBoolean("HasSavedFile", true);
+    		editor.putInt("TempScore", _gameboardView.getScore());
+    		editor.putInt("CurrentScore", _gameboardView.getcurrentScore());
+    		editor.commit();
+    	}else
+    	{
+    		editor.putBoolean("HasSavedFile", false);
+    		editor.commit();
+    	}
+    	finish();
     }
     
     public void shredEmails(ShredderGuy sg)
