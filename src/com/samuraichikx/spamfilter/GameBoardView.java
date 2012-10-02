@@ -119,7 +119,10 @@ public class GameBoardView extends View implements OnTouchListener{
          {
     		 if(drawemails.get(i).isflagged())
     		 {
-    			 
+    			 background.setStyle(Style.FILL);
+    	    	 background.setColor(Color.BLACK);
+    	    	 background.setTextSize(20);
+    			 canvas.drawText(""+drawemails.get(i).getScoreValue(), drawemails.get(i).x(), drawemails.get(i).y(), background);
     			 drawemails.get(i).getBitmap().recycle();
     			 updateScore(drawemails.get(i).getScoreValue());
     			 drawemails.remove(i);
