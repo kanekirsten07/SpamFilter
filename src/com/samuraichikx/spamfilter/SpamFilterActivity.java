@@ -19,8 +19,10 @@ public class SpamFilterActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_spam_filter);
         Button newgame = (Button)findViewById(R.id.newgame);
         Button options = (Button)findViewById(R.id.options);
+        Button howto = (Button)findViewById(R.id.howto);
         newgame.setOnClickListener(this);
         options.setOnClickListener(this); 
+        howto.setOnClickListener(this);
     }
     
     public void onClick(View v)
@@ -35,6 +37,11 @@ public class SpamFilterActivity extends Activity implements OnClickListener {
     		break;
     	case R.id.options:
     		i = new Intent(this, OptionsActivity.class);
+    		startActivity(i);
+    		break;
+    	case R.id.howto:
+    		//Log.d("howto", "click!");
+    		i = new Intent(this, HowToActivity.class);
     		startActivity(i);
     		break;
     	}

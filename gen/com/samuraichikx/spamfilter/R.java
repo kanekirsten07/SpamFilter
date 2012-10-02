@@ -15,9 +15,10 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int background=0x7f060000;
+        public static final int background=0x7f060003;
         public static final int background2=0x7f060001;
         public static final int background3=0x7f060002;
+        public static final int backgroundblack=0x7f060000;
     }
     public static final class dimen {
         public static final int padding_large=0x7f070002;
@@ -32,33 +33,37 @@ public final class R {
         public static final int envelope4=0x7f020004;
         public static final int envelope5=0x7f020005;
         public static final int envelope6=0x7f020006;
-        public static final int howto=0x7f020007;
-        public static final int ic_action_search=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int newgame=0x7f02000a;
-        public static final int options=0x7f02000b;
-        public static final int shredderguy1=0x7f02000c;
-        public static final int shredderguy2=0x7f02000d;
-        public static final int shredderguy3=0x7f02000e;
-        public static final int spamfilter=0x7f02000f;
+        public static final int envelope7=0x7f020007;
+        public static final int howto=0x7f020008;
+        public static final int ic_action_search=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int newgame=0x7f02000b;
+        public static final int options=0x7f02000c;
+        public static final int shredderguy1=0x7f02000d;
+        public static final int shredderguy2=0x7f02000e;
+        public static final int shredderguy3=0x7f02000f;
+        public static final int spamfilter=0x7f020010;
     }
     public static final class id {
         public static final int game_board_view=0x7f0b0000;
-        public static final int menu_settings=0x7f0b0003;
+        public static final int howto=0x7f0b0003;
+        public static final int menu_settings=0x7f0b0004;
         public static final int newgame=0x7f0b0002;
         public static final int options=0x7f0b0001;
     }
     public static final class layout {
         public static final int activity_game_board=0x7f030000;
         public static final int activity_game_board_view=0x7f030001;
-        public static final int activity_options=0x7f030002;
-        public static final int activity_spam_filter=0x7f030003;
+        public static final int activity_how_to=0x7f030002;
+        public static final int activity_options=0x7f030003;
+        public static final int activity_spam_filter=0x7f030004;
     }
     public static final class menu {
         public static final int activity_game_board=0x7f0a0000;
         public static final int activity_game_board_view=0x7f0a0001;
-        public static final int activity_options=0x7f0a0002;
-        public static final int activity_spam_filter=0x7f0a0003;
+        public static final int activity_how_to=0x7f0a0002;
+        public static final int activity_options=0x7f0a0003;
+        public static final int activity_spam_filter=0x7f0a0004;
     }
     public static final class string {
         public static final int app_name=0x7f080000;
@@ -67,6 +72,7 @@ public final class R {
         public static final int menu_settings=0x7f080001;
         public static final int title_activity_game_board=0x7f080003;
         public static final int title_activity_game_board_view=0x7f080004;
+        public static final int title_activity_how_to=0x7f080008;
         public static final int title_activity_options=0x7f080007;
         public static final int title_activity_spam_filter=0x7f080002;
     }
