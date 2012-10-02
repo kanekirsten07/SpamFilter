@@ -91,7 +91,7 @@ public class GameBoardActivity extends Activity {
     {
     	int xcoord = xcoordinate.nextInt(maxx);
     	int ycoord = 30;
-    	int envelopenumber = envelope.nextInt(2);
+    	int envelopenumber = envelope.nextInt(4);
     	String spawn = OptionsActivity.getFrequency(context);
     	int spawnrate =Integer.parseInt( spawn);
     	Emails e = null;
@@ -120,6 +120,15 @@ public class GameBoardActivity extends Activity {
     		case(1):
     			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope2);
     			 e = new Emails(-10, xcoord, ycoord, email);
+    			 break;
+    		case(2):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope3);
+    			 e = new Emails(20, xcoord, ycoord, email);
+    			 break;
+    		case(3):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope4);
+    			 e = new Emails(-20, xcoord, ycoord, email);
+    			 break;
     		}
     		
 			if(!(e== null)){

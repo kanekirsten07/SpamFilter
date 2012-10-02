@@ -38,6 +38,7 @@ public final class R {
         public static final int shredderguy1=0x7f02000a;
         public static final int shredderguy2=0x7f02000b;
         public static final int shredderguy3=0x7f02000c;
+        public static final int spamfilter=0x7f02000d;
     }
     public static final class id {
         public static final int game_board_view=0x7f0b0000;
