@@ -30,15 +30,17 @@ public final class R {
         public static final int envelope2=0x7f020002;
         public static final int envelope3=0x7f020003;
         public static final int envelope4=0x7f020004;
-        public static final int howto=0x7f020005;
-        public static final int ic_action_search=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int newgame=0x7f020008;
-        public static final int options=0x7f020009;
-        public static final int shredderguy1=0x7f02000a;
-        public static final int shredderguy2=0x7f02000b;
-        public static final int shredderguy3=0x7f02000c;
-        public static final int spamfilter=0x7f02000d;
+        public static final int envelope5=0x7f020005;
+        public static final int envelope6=0x7f020006;
+        public static final int howto=0x7f020007;
+        public static final int ic_action_search=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int newgame=0x7f02000a;
+        public static final int options=0x7f02000b;
+        public static final int shredderguy1=0x7f02000c;
+        public static final int shredderguy2=0x7f02000d;
+        public static final int shredderguy3=0x7f02000e;
+        public static final int spamfilter=0x7f02000f;
     }
     public static final class id {
         public static final int game_board_view=0x7f0b0000;

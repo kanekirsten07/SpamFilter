@@ -115,7 +115,7 @@ public class GameBoardActivity extends Activity {
     		switch(envelopenumber){
     		case(0):
     			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope);
-    			e = new Emails(10, xcoord, ycoord, email);
+    			e = new Emails(-10, xcoord, ycoord, email);
     			break;
     		case(1):
     			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope2);
@@ -129,6 +129,14 @@ public class GameBoardActivity extends Activity {
     			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope4);
     			 e = new Emails(-20, xcoord, ycoord, email);
     			 break;
+    		case(4):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope6);
+    			 e = new Emails(50, xcoord, ycoord, email);
+    			 break;
+    		case(5):
+    			email = BitmapFactory.decodeResource(getResources(), R.drawable.envelope5);
+			 	e = new Emails(30, xcoord, ycoord, email);
+			 	break;
     		}
     		
 			if(!(e== null)){
