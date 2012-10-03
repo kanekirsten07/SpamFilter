@@ -153,9 +153,7 @@ public class GameBoardActivity extends Activity {
     	shredderanimation++;
     	timekeeper++;
     }
-    /*
-     * Shred emails if either they are lined up wih the Shredder Guy or if they reach the end of the screen. Update them to all fall otherwise.
-     */
+  
     public boolean isgameover()
     {
     	return gameover;
@@ -175,7 +173,7 @@ public class GameBoardActivity extends Activity {
     	}
     	
     }
-    
+    /* Saves the players current score and overall high score for when the player returns to the game */
     @Override
     public void onBackPressed(){
     	Log.d("Back", "Pressed");
@@ -192,7 +190,9 @@ public class GameBoardActivity extends Activity {
     	}
     	finish();
     }
-    
+    /*
+     * Shred emails if either they are lined up wih the Shredder Guy or if they reach the end of the screen. Update them to all fall otherwise.
+     */
     public void shredEmails(ShredderGuy sg)
     {
     	for(Emails e: emails)

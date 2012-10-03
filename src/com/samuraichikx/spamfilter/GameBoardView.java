@@ -128,7 +128,7 @@ public class GameBoardView extends View implements OnTouchListener{
     			 drawemails.remove(i);
     		 }else if(drawemails.get(i).y()+ drawemails.get(i).getHeight()>= getHeight()-50){
     			 Log.d("End of the line", "erased");
-    			 /* Deletes emails if they reach the end of the page and have not been shredded*/
+    			 /* Deletes spam emails if they reach the end of the page and have not been shredded*/
     			 if(drawemails.get(i).getScoreValue() > 0)
     			 {
     				 updateScore((-1) * drawemails.get(i).getScoreValue());
@@ -192,6 +192,7 @@ public class GameBoardView extends View implements OnTouchListener{
 		// TODO Auto-generated method stub
 		switch(m.getAction()){
 		case MotionEvent.ACTION_DOWN:
+			/* check coordinates of finger, if they land on the shredder, the player can move it around*/
 			if(s.getX()<= m.getX() && (s.getX() + s.getWidth())>= m.getX() && s.getY()<= m.getY() && (s.getY() + s.getHeight())>= m.getY())
 			{
 				s.setX((int)m.getX()-50);
