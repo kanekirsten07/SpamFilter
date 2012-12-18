@@ -4,6 +4,6 @@
     <color name="backgroundblack">#000000</color>
     <color name ="background2"> #A0A0A0</color>
     <color name = "background3"> #f50f0f</color>
-    <color name ="background"> #FFFFFF</color>
+    <color name ="background"> #FFF</color>
     
 </resources>

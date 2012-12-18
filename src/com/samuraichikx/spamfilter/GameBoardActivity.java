@@ -91,7 +91,7 @@ public class GameBoardActivity extends Activity {
     {
     	int xcoord = xcoordinate.nextInt(maxx);
     	int ycoord = 30;
-    	int envelopenumber = envelope.nextInt(4);
+    	int envelopenumber = envelope.nextInt(7);
     	String spawn = OptionsActivity.getFrequency(context);
     	int spawnrate =Integer.parseInt( spawn);
     	Emails e = null;
